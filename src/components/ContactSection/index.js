@@ -1,9 +1,12 @@
 import React from 'react';
+import LeftSubsection from './LeftSubsection';
+import RightSection from './RightSection';
 
 const ContactSection = () => {
   return (
-    <section className="h-[80vh] bg-slate-400 z-20">
-      ContactSectionadfa
+    <section className="h-[90vh] z-20 flex flex-row">
+      <LeftSubsection />
+      <RightSection />
     </section>
   );
 };

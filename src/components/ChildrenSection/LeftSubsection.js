@@ -42,7 +42,6 @@ const LeftSubsection = () => {
         duration: 2,
         ease: 'elastic.out',
         stagger: 0.2,
-
         scale: 0.5,
         transformOrigin: 'center',
         scrollTrigger: '#section',
@@ -53,7 +52,6 @@ const LeftSubsection = () => {
         trigger: 'section',
         start: `top 80%`,
         onEnter: () => textAnimation.play(),
-        markers: true,
       });
 
       ScrollTrigger.create({
@@ -64,7 +62,7 @@ const LeftSubsection = () => {
       const imgAnimation = gsap.from('.-z-10', {
         duration: 1.5,
         ease: 'power4',
-        delay: 1,
+        delay: 2,
         y: '+=500',
         transformOrigin: 'center',
         scrollTrigger: '#section',
@@ -72,14 +70,14 @@ const LeftSubsection = () => {
       });
 
       ScrollTrigger.create({
-        trigger: '.-z-10',
-        start: `top 80%`,
+        trigger: 'section',
+        start: `top bottom`,
         onEnter: () => imgAnimation.play(),
         markers: true,
       });
 
       ScrollTrigger.create({
-        trigger: '.-z-10',
+        trigger: 'section',
         onLeaveBack: () => imgAnimation.pause(0),
       });
     }, sectionRef);
