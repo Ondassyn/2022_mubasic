@@ -34,7 +34,6 @@ const EverywhereSection = () => {
           // end: `+=${window.innerHeight / 2}`,
           end: `bottom-=${height}`,
           scrub: true,
-          markers: true,
         },
       });
 

@@ -42,7 +42,6 @@ const RightSubsection = () => {
           start: 'top top+=48px',
           end: `bottom-=${textHeight}`,
           scrub: true,
-          markers: true,
         },
       });
     }, sectionRef);
@@ -58,7 +57,7 @@ const RightSubsection = () => {
     >
       <div
         id="main-text"
-        className="text-[5.5rem] font-bold whitespace-pre-line tracking-[-.2rem] leading-[4.7rem]"
+        className="text-[5.5rem] font-bold whitespace-pre-line tracking-[-.2rem] leading-[4.7rem] flex-shrink-0"
       >
         <h1 className="scale-y-0">Driven by</h1>
         <h1 className="scale-y-0">the desire to</h1>
