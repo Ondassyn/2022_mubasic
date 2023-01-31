@@ -1,11 +1,10 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const LeftSubsection = () => {
   const sectionRef = useRef();
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -38,12 +37,11 @@ const LeftSubsection = () => {
     <div
       id="section"
       ref={sectionRef}
-      className="w-1/2 bg-[#c0a8e6] p-10 flex flex-col justify-between"
+      className="bg-[#1b1a19] w-1/2 p-10 flex flex-col justify-between"
     >
       <Image
-        src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62a7833b0d6bca0f42891670_contact-icn.svg"
-        alt="@"
-        loading="lazy"
+        src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62a8a5715cc9b22ee358da21_05_DSP_Icon_Spotify.svg"
+        alt="Spotify logo"
         height={100}
         width={100}
       />
@@ -52,8 +50,8 @@ const LeftSubsection = () => {
           Contact us
         </p> */}
 
-        <div className="text-7xl font-bold flex flex-row flex-wrap">
-          {[...'Contact us'].map((c, index) => {
+        <div className="text-7xl font-bold flex flex-row flex-wrap text-[#fcf3e4]">
+          {[...'Listen to us'].map((c, index) => {
             if (c === ' ') return <pre className="text-2xl">{c}</pre>;
             else
               return (
@@ -64,19 +62,11 @@ const LeftSubsection = () => {
           })}
         </div>
         <p className="italic font-bold text-[#f5e1be] text-3xl">
-          anytime
+          all the time
         </p>
       </div>
-      <p
-        className="text-5xl font-bold cursor-copy"
-        onClick={() => {
-          setCopied(true);
-          setTimeout(() => {
-            setCopied(false);
-          }, 2000);
-        }}
-      >
-        {copied ? 'Copied!' : 'info@mubasic.com'}
+      <p className="text-4xl underline text-[#fcf3e4] font-bold">
+        Spotify
       </p>
     </div>
   );

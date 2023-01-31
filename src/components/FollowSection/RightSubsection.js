@@ -94,7 +94,7 @@ const RightSubsection = () => {
 
         <div className="text-7xl font-bold flex flex-row flex-wrap">
           {[...'Follow us'].map((c, index) => {
-            if (c === ' ') return <pre>{c}</pre>;
+            if (c === ' ') return <pre className="text-2xl">{c}</pre>;
             else
               return (
                 <p key={index} className="contact scale-y-0">
@@ -104,7 +104,7 @@ const RightSubsection = () => {
           })}
         </div>
         <p className="italic font-bold text-[#4eaea5] text-3xl">
-          anytime
+          anywhere
         </p>
       </div>
       <div className="flex flex-row gap-4">

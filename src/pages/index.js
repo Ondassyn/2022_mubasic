@@ -9,6 +9,8 @@ import FAQSection from '@/components/FAQSection';
 import ChildrenSection from '@/components/ChildrenSection';
 import ContactSection from '@/components/ContactSection';
 import FollowSection from '@/components/FollowSection';
+import ListenSection from '@/components/ListenSection';
+import NavbarSection from '@/components/NavbarSection';
 gsap.registerPlugin(ScrollTrigger);
 
 const suisseintl = localFont({
@@ -52,7 +54,8 @@ export default function Home() {
         <ChildrenSection />
         <ContactSection />
         <FollowSection />
-        <PlayerSection />
+        <ListenSection />
+        <NavbarSection />
       </main>
     </>
   );
