@@ -1,12 +1,12 @@
 import React from 'react';
 import LeftSubsection from './LeftSubsection';
-import RightSection from './RightSection';
+import RightSubsection from './RightSubsection';
 
 const ContactSection = () => {
   return (
     <section className="h-[90vh] z-20 flex flex-row">
       <LeftSubsection />
-      <RightSection />
+      <RightSubsection />
     </section>
   );
 };
