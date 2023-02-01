@@ -37,7 +37,26 @@ const NavbarSection = () => {
       ref={sectionRef}
       className="h-[80vh] p-10 bg-[#fcf3e4] flex flex-col justify-between items-center"
     >
-      <div className="flex flex-row justify-between"></div>
+      <nav className="w-full flex flex-row justify-between font-bold underline text-3xl">
+        <a href="#catalogue" className="anchor">
+          Catalogue
+        </a>
+        <a href="#creators" className="anchor">
+          Creators
+        </a>
+        <a href="#distribution" className="anchor">
+          Distribution
+        </a>
+        <a href="#faq" className="anchor">
+          FAQ
+        </a>
+        <a href="#about" className="anchor">
+          About
+        </a>
+        <a href="#contact" className="anchor">
+          Contact
+        </a>
+      </nav>
 
       <div className="text-[20vw] leading-none font-bold flex flex-row flex-wrap">
         {[...'mubasic'].map((c, index) => (

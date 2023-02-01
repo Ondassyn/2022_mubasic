@@ -32,7 +32,7 @@ const FAQSection = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="h-screen flex flex-row">
+    <section id="faq" className="panel h-screen flex flex-row">
       <div className="w-1/2 p-12 bg-[#f3f3f3] flex flex-col gap-2">
         {QUESTIONS.map((q, index) => (
           <div

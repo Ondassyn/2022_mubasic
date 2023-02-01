@@ -27,7 +27,6 @@ const RightSubsection = () => {
       ScrollTrigger.create({
         trigger: 'section',
         start: 'top-=300 bottom',
-        markers: true,
         onLeaveBack: () => textAnimation.pause(0),
       });
 
@@ -49,7 +48,6 @@ const RightSubsection = () => {
       ScrollTrigger.create({
         trigger: 'section',
         start: 'top-=300 bottom',
-        markers: true,
         onLeaveBack: () => imgAnimation.pause(0),
       });
     }, sectionRef);

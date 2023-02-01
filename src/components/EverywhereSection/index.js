@@ -26,7 +26,7 @@ const EverywhereSection = () => {
         paused: true,
       });
 
-      gsap.to('#everywhere-section', {
+      gsap.to('#distribution', {
         scrollTrigger: {
           pin: '#everywhere-text',
           trigger: '#everywhere-text',
@@ -38,7 +38,7 @@ const EverywhereSection = () => {
       });
 
       ScrollTrigger.create({
-        trigger: '#everywhere-section',
+        trigger: '#distribution',
         start: 'top top',
         onEnter: () => anim.play(),
       });
@@ -54,9 +54,9 @@ const EverywhereSection = () => {
 
   return (
     <section
-      className="h-screen flex flex-row"
+      className="panel h-screen flex flex-row"
       ref={ref}
-      id="everywhere-section"
+      id="distribution"
     >
       <div className="w-1/2 bg-gray-900 p-12"></div>
       <div className="w-1/2 bg-[#F3F3F3] p-12 flex flex-col justify-between">

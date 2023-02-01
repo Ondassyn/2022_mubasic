@@ -2,13 +2,16 @@ import React from 'react';
 import LeftSubsection from './LeftSubsection';
 import RightSubsection from './RightSubsection';
 
-const ChildrenSection = () => {
+const CreatorsSection = () => {
   return (
-    <section id="about" className="panel h-screen flex flex-row">
+    <section
+      id="creators"
+      className="panel h-[90vh] z-20 flex flex-row"
+    >
       <LeftSubsection />
       <RightSubsection />
     </section>
   );
 };
 
-export default ChildrenSection;
+export default CreatorsSection;

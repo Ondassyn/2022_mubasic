@@ -11,7 +11,10 @@ import ContactSection from '@/components/ContactSection';
 import FollowSection from '@/components/FollowSection';
 import ListenSection from '@/components/ListenSection';
 import NavbarSection from '@/components/NavbarSection';
-gsap.registerPlugin(ScrollTrigger);
+import ScrollToPlugin from 'gsap/dist/ScrollToPlugin';
+import { useEffect, useRef } from 'react';
+import CreatorsSection from '@/components/CreatorsSection';
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const suisseintl = localFont({
   src: [
@@ -30,6 +33,28 @@ const suisseintl = localFont({
 });
 
 export default function Home() {
+  const mainRef = useRef();
+
+  useEffect(() => {
+    /* Main navigation */
+
+    document.querySelectorAll('.anchor').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetElem = document.querySelector(
+          e.target.getAttribute('href')
+        );
+        gsap.to(window, {
+          scrollTo: {
+            y: targetElem,
+            autoKill: false,
+          },
+          duration: 1,
+        });
+      });
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -45,17 +70,25 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
+        ref={mainRef}
         className={`${suisseintl.variable} font-sans text-[#0D0D0D]`}
       >
         <HeroSection />
-        <PlayerSection />
-        <EverywhereSection />
-        <FAQSection />
-        <ChildrenSection />
-        <ContactSection />
+        {/* <section id="panels"> */}
+        <div id="panels-container">
+          <PlayerSection />
+          <CreatorsSection />
+          <EverywhereSection />
+          <FAQSection />
+          <ChildrenSection />
+          <ContactSection />
+        </div>
+
         <FollowSection />
         <ListenSection />
         <NavbarSection />
+
+        {/* </section> */}
       </main>
     </>
   );

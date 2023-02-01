@@ -73,7 +73,6 @@ const LeftSubsection = () => {
         trigger: 'section',
         start: `top bottom`,
         onEnter: () => imgAnimation.play(),
-        markers: true,
       });
 
       ScrollTrigger.create({

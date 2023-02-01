@@ -44,10 +44,6 @@ const RightSubsection = () => {
   }, []);
 
   useEffect(() => {
-    console.log('mediaTextWidth', mediaTextWidth);
-  }, [mediaTextWidth]);
-
-  useEffect(() => {
     const ctx = gsap.context(() => {
       const textAnimation = gsap.to('.contact', {
         duration: 1,
