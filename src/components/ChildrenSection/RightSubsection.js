@@ -40,7 +40,14 @@ const RightSubsection = () => {
           pin: '#main-text',
           trigger: '#main-text',
           start: 'top top+=48px',
-          end: `bottom-=${textHeight}`,
+          end: (self) => {
+            return (
+              self.start +
+              window.innerHeight / 1.2 -
+              self.pin.clientHeight -
+              textHeight
+            );
+          },
           scrub: true,
         },
       });

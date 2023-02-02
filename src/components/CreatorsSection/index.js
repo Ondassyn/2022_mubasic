@@ -4,10 +4,7 @@ import RightSubsection from './RightSubsection';
 
 const CreatorsSection = () => {
   return (
-    <section
-      id="creators"
-      className="panel h-[90vh] z-20 flex flex-row"
-    >
+    <section id="creators" className="panel h-[120vh] flex flex-row">
       <LeftSubsection />
       <RightSubsection />
     </section>

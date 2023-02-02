@@ -33,6 +33,13 @@ const LeftSubsection = () => {
           pin: '#main-text',
           trigger: '#main-text',
           start: 'top top+=48px',
+          end: (self) => {
+            return (
+              self.start +
+              window.innerHeight / 1.3 -
+              self.pin.clientHeight
+            );
+          },
           scrub: true,
         },
       });

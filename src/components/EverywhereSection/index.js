@@ -32,7 +32,15 @@ const EverywhereSection = () => {
           trigger: '#everywhere-text',
           start: 'top top+=48px',
           // end: `+=${window.innerHeight / 2}`,
-          end: `bottom-=${height}`,
+          // end: `bottom-=${height}`,
+          end: (self) => {
+            return (
+              self.start +
+              window.innerHeight / 1.2 -
+              self.pin.clientHeight -
+              height
+            );
+          },
           scrub: true,
         },
       });

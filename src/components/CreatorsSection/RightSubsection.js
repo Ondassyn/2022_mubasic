@@ -1,78 +1,122 @@
-import React, { useState } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import Image from 'next/image';
+import React, { useEffect, useRef } from 'react';
 
 const RightSection = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [message, setMessage] = useState();
-  const [checked, setChecked] = useState(false);
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const imgAnimation = gsap.from('.img', {
+        duration: 1,
+        ease: 'elastic.out(1.1, 0.7)',
+        delay: 'random(0, 1, 0.2)',
+        y: '+=150',
+        scrollTrigger: '#section',
+        paused: true,
+      });
+
+      ScrollTrigger.create({
+        trigger: '.img',
+        start: 'bottom bottom',
+        onEnter: () => imgAnimation.play(),
+      });
+
+      ScrollTrigger.create({
+        trigger: '.img',
+        onLeaveBack: () => imgAnimation.pause(0),
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="w-1/2 p-10 flex flex-col justify-between bg-[#f3f3f3] font-bold">
-      <div className="flex flex-col gap-6">
-        <div className="bg-[#f5e1be] rounded-xl px-8 py-3 focus-within:ring-[#f37925] ring-2 ring-[#f5e1be] hover:ring-[#f37925]">
-          <label className="block">
-            <span className="flex flex-row gap-1 text-[#f37925]">
-              Name
-            </span>
-            <input
-              type="text"
-              className="bg-[#f5e1be] text-2xl my-4 focus:outline-none block w-full"
-              placeholder="Your name"
-              onChange={(e) => setName(e?.target?.value)}
-              value={name}
+    <div
+      ref={sectionRef}
+      id="section"
+      className="w-1/2 p-10 flex flex-col bg-[#f5e1be] text-xl"
+    >
+      <div className="h-1/3 flex flex-row">
+        <div className="flex flex-col gap-2 w-1/3 px-4">
+          <div className="rounded-xl bg-[#91c3ce] overflow-hidden">
+            <Image
+              src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62b2e8db5f7b49223465dd4d_creator_01_producers.png"
+              alt="girl with mic"
+              height={260}
+              width={260}
+              className="img translate-y-6"
             />
-          </label>
+          </div>
+          <p>Producers</p>
         </div>
-
-        <div className="bg-[#f5e1be] rounded-xl px-8 py-3 focus-within:ring-[#f37925] ring-2 ring-[#f5e1be] hover:ring-[#f37925]">
-          <label className="block">
-            <span className="flex flex-row gap-1 text-[#f37925]">
-              Email Address
-            </span>
-            <input
-              type="email"
-              className="bg-[#f5e1be] text-2xl my-4 focus:outline-none block w-full"
-              placeholder="Your email"
-              onChange={(e) => setEmail(e?.target?.value)}
-              value={email}
+        <div className="flex flex-col gap-2 w-1/3 px-4">
+          <div className="rounded-xl bg-[#fac670] overflow-hidden">
+            <Image
+              src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62b2e8e508915b202c504eea_creator_02_artists.png"
+              alt="guy with trumpet"
+              height={260}
+              width={260}
+              className="img translate-y-6"
             />
-          </label>
-        </div>
-
-        <div className="bg-[#f5e1be] rounded-xl px-8 py-3 focus-within:ring-[#f37925] ring-2 ring-[#f5e1be] hover:ring-[#f37925]">
-          <label className="block">
-            <span className="flex flex-row gap-1 text-[#f37925]">
-              Message
-            </span>
-            <textarea
-              type="email"
-              rows={4}
-              className="bg-[#f5e1be] text-2xl my-4 focus:outline-none block w-full"
-              placeholder="Your message"
-              onChange={(e) => setMessage(e?.target?.value)}
-              value={message}
-            />
-          </label>
+          </div>
+          <p>Musicians</p>
         </div>
       </div>
 
-      <div className="flex flex-row justify-between items-end">
-        <div className="flex flex-row gap-4 items-center w-1/2">
-          <div
-            className="w-20 h-20 bg-[#f5e1be] rounded-lg cursor-pointer ring-2 ring-[#f5e1be] hover:ring-[#f37925] 
-            text-7xl flex flex-row justify-center items-center"
-            onClick={() => setChecked((c) => !c)}
-          >
-            {checked ? '\u2713' : ''}
+      <div className="h-1/3 flex flex-row justify-end">
+        <div className="flex flex-col gap-2 w-1/3 px-4">
+          <div className="rounded-xl bg-[#c0a8e6] overflow-hidden">
+            <Image
+              src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62b2e8f175be69693a80b179_creator_03_instrumentalists.png"
+              alt="girl with mic"
+              height={260}
+              width={260}
+              className="img translate-y-6"
+            />
           </div>
-          <p className="font-normal w-1/2">
-            When submitting your information you will agree to our{' '}
-            <span className="underline">Terms & Privacy policy</span>
-          </p>
+          <p>Instrumentalists</p>
         </div>
-        <button className="text-6xl py-8 px-10 bg-[#f37925] rounded-xl">
-          Send
-        </button>
+        <div className="flex flex-col gap-2 w-1/3 px-4">
+          <div className="rounded-xl bg-[#f37925] overflow-hidden">
+            <Image
+              src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62b2e8f90231625cfc85caf6_creator_04_guitarists.png"
+              alt="guy with trumpet"
+              height={260}
+              width={260}
+              className="img translate-y-6"
+            />
+          </div>
+          <p>Songwriters</p>
+        </div>
+      </div>
+
+      <div className="h-1/3 flex flex-row">
+        <div className="flex flex-col gap-2 w-1/3 px-4">
+          <div className="rounded-xl bg-[#fac670] overflow-hidden">
+            <Image
+              src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62b2e9037b5b9df257524259_creator_05_beat-makers.png"
+              alt="girl with mic"
+              height={260}
+              width={260}
+              className="img translate-y-6"
+            />
+          </div>
+          <p>Visual artists</p>
+        </div>
+        <div className="flex flex-col gap-2 w-1/3 px-4">
+          <div className="rounded-xl bg-[#91c3ce] overflow-hidden">
+            <Image
+              src="https://uploads-ssl.webflow.com/62a300b973c161526ec2e4a8/62b2e90b401ff748a486ebbf_creator_06_vocalists.png"
+              alt="guy with trumpet"
+              height={260}
+              width={260}
+              className="img translate-y-6"
+            />
+          </div>
+          <p>Vocalists</p>
+        </div>
       </div>
     </div>
   );

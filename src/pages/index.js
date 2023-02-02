@@ -38,21 +38,25 @@ export default function Home() {
   useEffect(() => {
     /* Main navigation */
 
-    document.querySelectorAll('.anchor').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetElem = document.querySelector(
-          e.target.getAttribute('href')
-        );
-        gsap.to(window, {
-          scrollTo: {
-            y: targetElem,
-            autoKill: false,
-          },
-          duration: 1,
+    const ctx = gsap.context(() => {
+      document.querySelectorAll('.anchor').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetElem = document.querySelector(
+            e.target.getAttribute('href')
+          );
+          gsap.to(window, {
+            scrollTo: {
+              y: targetElem,
+              autoKill: false,
+            },
+            duration: 1,
+          });
         });
       });
-    });
+    }, mainRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
