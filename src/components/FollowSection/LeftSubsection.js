@@ -54,7 +54,12 @@ const LeftSubsection = () => {
 
         <div className="text-7xl font-bold flex flex-row flex-wrap">
           {[...'Contact us'].map((c, index) => {
-            if (c === ' ') return <pre className="text-2xl">{c}</pre>;
+            if (c === ' ')
+              return (
+                <pre key={index} className="text-2xl">
+                  {c}
+                </pre>
+              );
             else
               return (
                 <p key={index} className="contact scale-y-0">

@@ -1,12 +1,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import React, {
-  useRef,
-  useState,
-  useEffect,
-  useLayoutEffect,
-} from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const MEDIAS = [
   {
@@ -34,14 +29,6 @@ const MEDIAS = [
 const RightSubsection = () => {
   const sectionRef = useRef();
   const mediaTextRef = useRef();
-  const [mediaIndex, setMediaIndex] = useState(0);
-  const [mediaTextWidth, setMediaTextWidth] = useState(0);
-
-  useLayoutEffect(() => {
-    setMediaTextWidth(
-      mediaTextRef.current?.getBoundingClientRect()?.width
-    );
-  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
